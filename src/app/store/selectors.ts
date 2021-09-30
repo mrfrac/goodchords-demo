@@ -7,8 +7,3 @@ export const noteSelector = createSelector(
   appRootSelector,
   (state) => state.note
 );
-
-export const noteLetterSelector = createSelector(
-  appRootSelector,
-  (state) => state.noteLetter
-);

@@ -1,3 +1,11 @@
 <div class="inline-flex">
-  <app-note-letter *ngFor='let noteLetter of noteLetters' [noteLetter]='noteLetter'></app-note-letter>
+  <button *ngFor='let noteLetter of noteLetters'
+    class="bg-gray-300 hover:bg-gray-400 font-bold py-2 px-4"
+    [ngClass]="selectedNote === noteLetter ? 'bg-gray-500' : ''"
+    (click)='onNoteLetterClicked(noteLetter)'>
+    {{ noteLetter }}
+  </button>
+  <select [(ngModel)]='selectedOctave' (change)='onOctaveValueChanged()'>
+    <option *ngFor='let octave of octaves' [value]='octave'>{{ octave }}</option>
+  </select>
 </div>

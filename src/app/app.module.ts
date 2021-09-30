@@ -9,17 +9,13 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { ScaleSelectorComponent } from './components/scale-selector/scale-selector.component';
-import { NoteLetterComponent } from './components/note-letter/note-letter.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NoteSelectorComponent,
-    ScaleSelectorComponent,
-    NoteLetterComponent,
-  ],
+  declarations: [AppComponent, NoteSelectorComponent, ScaleSelectorComponent],
   imports: [
     BrowserModule,
+    FormsModule,
     StoreModule.forRoot({ app: reducers }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

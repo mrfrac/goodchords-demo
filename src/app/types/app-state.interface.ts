@@ -4,4 +4,5 @@ export interface AppStateInterface {
   note: Note | null;
   scale: Scale | null;
   noteLetter: string | null;
+  octave: number | null;
 }
