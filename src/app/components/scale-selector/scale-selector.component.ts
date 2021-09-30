@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Note } from 'goodchords';
 import { Observable, Subject } from 'rxjs';
 import { select, Store } from '@ngrx/store';
-import { tap } from 'rxjs/operators';
+import { takeUntil, tap } from 'rxjs/operators';
 import { noteSelector } from '../../store/selectors';
 
 @Component({
@@ -30,8 +30,8 @@ export class ScaleSelectorComponent implements OnInit, OnDestroy {
       select(noteSelector),
       tap((note) => {
         console.log(note.toString(), 'selected');
-      })
-      // takeUntil(this.ngUnsubscribe)
+      }),
+      takeUntil(this.ngUnsubscribe)
     );
   }
 }

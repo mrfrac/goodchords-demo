@@ -14,6 +14,20 @@ import { selectNoteAction } from '../../store/actions/note.action';
 export class NoteSelectorComponent implements OnInit, OnDestroy {
   noteLetters = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
   octaves = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  accidentals = [
+    {
+      label: '#',
+      value: '#',
+    },
+    {
+      label: 'b',
+      value: 'b',
+    },
+    {
+      label: 'n/a',
+      value: '',
+    },
+  ];
   selectedAccidental: string = null;
   selectedNote: string = null;
   selectedOctave: number = null;
@@ -29,7 +43,7 @@ export class NoteSelectorComponent implements OnInit, OnDestroy {
           const noteInfo = note.info();
           this.selectedOctave = noteInfo.octave;
           this.selectedNote = noteInfo.symbol;
-          console.log(note);
+          this.selectedAccidental = noteInfo.accidental.asString;
         }
       });
   }
@@ -59,6 +73,15 @@ export class NoteSelectorComponent implements OnInit, OnDestroy {
     );
 
     this.store.dispatch(selectNoteAction({ note: newNote }));
+  }
+
+  onAccidentalClicked(acc: string): void {
+    const newNote = new Note(this.selectedNote, acc, this.selectedOctave);
+
+    if (newNote.number() !== this.getCurrentNote().number()) {
+      this.selectedAccidental = acc;
+      this.store.dispatch(selectNoteAction({ note: newNote }));
+    }
   }
 
   private getCurrentNote(): Note {

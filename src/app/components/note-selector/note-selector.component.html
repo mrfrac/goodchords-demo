@@ -5,6 +5,12 @@
     (click)='onNoteLetterClicked(noteLetter)'>
     {{ noteLetter }}
   </button>
+  <button *ngFor='let acc of accidentals'
+    class='bg-red-300 hover:bg-red-400 py-2 px-4'
+    [ngClass]='selectedAccidental === acc.value ? "bg-red-500" : ""'
+    (click)='onAccidentalClicked(acc.value)'>
+    {{ acc.label }}
+  </button>
   <select [(ngModel)]='selectedOctave' (change)='onOctaveValueChanged()'>
     <option *ngFor='let octave of octaves' [value]='octave'>{{ octave }}</option>
   </select>
