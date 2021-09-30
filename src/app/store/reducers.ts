@@ -7,8 +7,6 @@ import { scaleSelectAction } from './actions/scale.action';
 const initialState: AppStateInterface = {
   note: null,
   scale: null,
-  noteLetter: null,
-  octave: null,
 };
 
 const noteReducer = createReducer(
