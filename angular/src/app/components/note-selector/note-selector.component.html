@@ -1,17 +1,44 @@
-<div class="inline-flex">
-  <button *ngFor='let noteLetter of noteLetters'
-    class="bg-gray-300 hover:bg-gray-400 font-bold py-2 px-4"
-    [ngClass]='selectedNote === noteLetter ? "bg-gray-500" : ""'
-    (click)='onNoteLetterClicked(noteLetter)'>
+<div class="btn-group input-group" role="group">
+  <!-- Notes start -->
+  <label
+    *ngFor="let noteLetter of noteLetters"
+    class="btn btn-primary"
+    [class.note-selected]="selectedNote === noteLetter"
+  >
     {{ noteLetter }}
-  </button>
-  <button *ngFor='let acc of accidentals'
-    class='bg-red-300 hover:bg-red-400 py-2 px-4'
-    [ngClass]='selectedAccidental === acc.value ? "bg-red-500" : ""'
-    (click)='onAccidentalClicked(acc.value)'>
+    <input
+      type="radio"
+      (click)="onNoteLetterClicked(noteLetter)"
+      [value]="noteLetter"
+      class="btn-check"
+    />
+  </label>
+  <!-- Noted end -->
+
+  <!-- Acc start -->
+  <label
+    class="btn btn-secondary"
+    *ngFor="let acc of accidentals"
+    [class.acc-selected]="acc.value === selectedAccidental"
+  >
     {{ acc.label }}
-  </button>
-  <select [(ngModel)]='selectedOctave' (change)='onOctaveValueChanged()'>
-    <option *ngFor='let octave of octaves' [value]='octave'>{{ octave }}</option>
+    <input
+      type="radio"
+      class="btn-check"
+      (click)="onAccidentalClicked(acc.value)"
+    />
+  </label>
+  <!-- Acc end -->
+
+  <!-- Octave start -->
+  <select
+    class="form-select"
+    [(ngModel)]="selectedOctave"
+    (change)="onOctaveValueChanged()"
+  >
+    <option *ngFor="let octave of octaves" [value]="octave">
+      {{ octave }}
+    </option>
   </select>
+  <!-- Octave end -->
 </div>

@@ -1,5 +1,13 @@
-<div class="inline-flex">
-  <select [value]="(selectedScale$ | async).name" (change)="onScaleSelect($event)">
-    <option *ngFor="let scale of scales" [value]="scale.name">{{ scale.name }}</option>
+<div class="d-flex align-items-center">
+  <label class="col-form-label">Scale: </label>
+
+  <select class="form-select" (change)="onScaleSelect($event)">
+    <option
+      *ngFor="let scale of scales"
+      [value]="scale.name"
+      [selected]="scale.name === (selectedScale$ | async).name"
+    >
+      {{ scale.name }}
+    </option>
   </select>
 </div>

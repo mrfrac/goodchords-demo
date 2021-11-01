@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Note, Scale } from 'goodchords';
 import { Observable, Subject } from 'rxjs';
 import { select, Store } from '@ngrx/store';
-import { takeUntil, tap } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 import { noteSelector, scaleSelector } from '../../store/selectors';
 import { scaleSelectAction } from '../../store/actions/scale.action';
 import { IScale } from 'goodchords/dist/scale/interfaces';
@@ -42,17 +42,12 @@ export class ScaleSelectorComponent implements OnInit, OnDestroy {
   private initValues(): void {
     this.selectedNote$ = this.store.pipe(
       select(noteSelector),
-      tap((note) => {
-        console.log(note.toString(), 'selected');
-      }),
+
       takeUntil(this.ngUnsubscribe)
     );
 
     this.selectedScale$ = this.store.pipe(
       select(scaleSelector),
-      tap((scale) => {
-        console.log('scale selected', scale);
-      }),
       takeUntil(this.ngUnsubscribe)
     );
   }

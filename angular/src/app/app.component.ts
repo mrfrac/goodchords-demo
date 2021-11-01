@@ -14,6 +14,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(selectNoteAction({ note: Note.fromString('C4') }));
-    this.store.dispatch(scaleSelectAction({ scale: Scale.getScales()[1] }));
+    this.store.dispatch(scaleSelectAction({ scale: Scale.getScales()[0] }));
   }
 }

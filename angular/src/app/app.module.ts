@@ -10,9 +10,11 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { ScaleSelectorComponent } from './components/scale-selector/scale-selector.component';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ScaleInfoComponent } from './components/scale-info/scale-info.component';
 
 @NgModule({
-  declarations: [AppComponent, NoteSelectorComponent, ScaleSelectorComponent],
+  declarations: [AppComponent, NoteSelectorComponent, ScaleSelectorComponent, ScaleInfoComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -22,6 +24,7 @@ import { FormsModule } from '@angular/forms';
       logOnly: environment.production,
     }),
     EffectsModule.forRoot([]),
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

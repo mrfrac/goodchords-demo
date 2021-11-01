@@ -1,0 +1,28 @@
+<ng-container *ngIf="currentScale !== null">
+  <h1 *ngIf="this.selectedScale?.name">{{ getScaleName() }}</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th *ngFor="let note of currentScale.getNotes()" scope="col">
+          {{ note.toString() }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td *ngFor="let chords of currentScale.getChords()">
+          <ul *ngIf="chords.length > 0">
+            <li
+              *ngFor="let chord of chords"
+              ngbPopover="chordPopover"
+              popoverTitle="Notes"
+            >
+              {{ chord.toString() }}
+              ({{ chord.getNotes().join(', ') }})
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
