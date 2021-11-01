@@ -1,2 +1,5 @@
-<h1>Scale selector</h1>
-<span>{{ (selectedNote$ | async).toString() }}</span>
+<div class="inline-flex">
+  <select [value]="(selectedScale$ | async).name" (change)="onScaleSelect($event)">
+    <option *ngFor="let scale of scales" [value]="scale.name">{{ scale.name }}</option>
+  </select>
+</div>

@@ -7,3 +7,8 @@ export const noteSelector = createSelector(
   appRootSelector,
   (state) => state.note
 );
+
+export const scaleSelector = createSelector(
+  appRootSelector,
+  (state) => state.scale
+);

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { selectNoteAction } from './store/actions/note.action';
-import { Note } from 'goodchords';
+import { Note, Scale } from 'goodchords';
+import { scaleSelectAction } from './store/actions/scale.action';
 
 @Component({
   selector: 'app-root',
@@ -13,5 +14,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(selectNoteAction({ note: Note.fromString('C4') }));
+    this.store.dispatch(scaleSelectAction({ scale: Scale.getScales()[1] }));
   }
 }

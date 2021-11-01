@@ -1,8 +1,9 @@
 import { createAction, props } from '@ngrx/store';
 import { ActionTypes } from '../action-types';
-import { Scale } from 'goodchords';
+// todo: path refactoring
+import { IScale } from '../../../../../goodchords/dist/scale/interfaces';
 
 export const scaleSelectAction = createAction(
   ActionTypes.SCALE_SELECT,
-  props<{ scale: Scale }>()
+  props<{ scale: IScale }>()
 );
