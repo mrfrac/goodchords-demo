@@ -11,16 +11,13 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/ng-goodchords-demo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "customWebpackConfig": {
-              "path": "webpack.config.js"
-            },
             "aot": true,
             "assets": [
               "src/favicon.ico",
@@ -62,7 +59,7 @@
           }
         },
         "serve": {
-          "builder": "@angular-builders/custom-webpack:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "ng-goodchords-demo:build"
           },
@@ -79,14 +76,11 @@
           }
         },
         "test": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
-            "customWebpackConfig": {
-              "path": "webpack.config.js"
-            },
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",

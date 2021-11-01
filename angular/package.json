@@ -22,15 +22,11 @@
     "@ngrx/store": "^12.4.0",
     "autoprefixer": "^10.3.4",
     "goodchords": "^0.4.0",
-    "ngx-build-plus": "^12.2.0",
-    "postcss": "^8.3.6",
     "rxjs": "~6.5.5",
-    "tailwindcss": "^2.2.15",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-builders/custom-webpack": "^12.1.2",
     "@angular-devkit/build-angular": "~12.2.5",
     "@angular/cli": "~12.2.5",
     "@angular/compiler-cli": "~12.2.5",
