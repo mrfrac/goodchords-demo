@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
-import { Note } from '../../../../../goodchords';
 import { takeUntil } from 'rxjs/operators';
 import { noteSelector } from '../../store/selectors';
 import { selectNoteAction } from '../../store/actions/note.action';
+import { Note } from 'goodchords';
 
 @Component({
   selector: 'app-note-selector',

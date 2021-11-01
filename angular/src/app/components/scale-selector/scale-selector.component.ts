@@ -4,8 +4,8 @@ import { Observable, Subject } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { takeUntil, tap } from 'rxjs/operators';
 import { noteSelector, scaleSelector } from '../../store/selectors';
-import { IScale } from '../../../../../goodchords/dist/scale/interfaces';
 import { scaleSelectAction } from '../../store/actions/scale.action';
+import { IScale } from 'goodchords/dist/scale/interfaces';
 
 @Component({
   selector: 'app-scale-selector',
